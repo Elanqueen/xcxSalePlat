@@ -1,0 +1,20 @@
+$def with (products)
+<h1 style="text-align:center">欢迎来到小店</h1>
+<div style="text-align:center">
+    <img src="static/images/public/ad.jpg" width="400" height="300" alt="advertisment"/>
+</div>
+<div>
+    <div style="font-size:em">商品列表如下：</div>
+$for p in products:
+    <div style="text-align:center;font-size:m;color:green">
+        <img src="/static/$p.images" width="200" height="150"/><br>
+        <a href="/desc/$p.title" style="text-align:left" width="100" height="60">$p.title</a>
+        <b style="text-align:center" width="100" height="60">$p.GGSL$p.GGDW</b>
+        <b style="text-align:right" width="100" height="60">$p.DJ$p.DJDW</b>
+    </div>
+</div>
+<div>
+    购物车
+</div>
+
+$var title:商品展示
