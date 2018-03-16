@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculation</title>
+    <link rel="stylesheet" type="text/css" href="mystyle.css">
+</head>
+<body>
+<h1>计算器</h1>
+第一个数字：<input id="first_num"><br>
+第二个数字：<input id="second_num"><br>
+<button onclick="add()">加</button>
+<button onclick="substrat()">减</button>
+<button onclick="devide()">除</button>
+<button onclick="ride()">乘</button><br>
+结果：<b id="result"></b><br>
+</body>
+<script>
+
+    //向结果传递值
+    function send_result(result){
+        document.getElementById("result").innerHTML=result
+    }
+    //加法
+    function add(){
+        var a=get_first_num()
+        var b=get_sen_num()
+        var re=Number(a)+Number(b)
+        send_result(re)
+    }
+    //减法
+    function substrat(){
+        var a=get_first_num()
+        var b=get_sen_num()
+        var re=a-b
+        send_result(re)
+    }
+    // 除法
+    function devide(){
+        var a=get_first_num()
+        var b=get_sen_num()
+        var re=a/b
+        send_result(re)
+    }
+    //乘法
+    function ride(){
+        var a=get_first_num()
+        var b=get_sen_num()
+        var re=a*b
+        send_result(re)
+    }
+    //获取第一个数字
+    function get_first_num(){
+        return document.getElementById("first_num").value
+    }
+    //获取第二个数字
+    function get_sen_num(){
+        return document.getElementById("second_num").value
+    }
+
+</script>
+
+</html>

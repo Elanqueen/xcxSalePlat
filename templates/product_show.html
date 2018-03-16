@@ -1,20 +1,69 @@
 $def with (products)
-<h1 style="text-align:center">欢迎来到小店</h1>
-<div style="text-align:center">
-    <img src="static/images/public/ad.jpg" width="400" height="300" alt="advertisment"/>
-</div>
-<div>
-    <div style="font-size:em">商品列表如下：</div>
+
+<link rel="stylesheet" type="text/css" href="/static/css/mystyle.css">
+<script src="static/JS/jquery-3.3.1.js"></script>
+
+<h1>欢迎来到小店</h1>
+
+<img src="static/images/public/ad.jpg" width="400" height="300" alt="advertisment"/>
+
+<p id="product_list">商品列表如下：</p>
+
 $for p in products:
-    <div style="text-align:center;font-size:m;color:green">
-        <img src="/static/$p.images" width="200" height="150"/><br>
-        <a href="/desc/$p.title" style="text-align:left" width="100" height="60">$p.title</a>
-        <b style="text-align:center" width="100" height="60">$p.GGSL$p.GGDW</b>
-        <b style="text-align:right" width="100" height="60">$p.DJ$p.DJDW</b>
+    <div>
+        <img src="/static/$p.image" width="200" height="150"/><br>
+        <a  href="/desc/$p.title" style="text-align:left" width="100" height="60">$p.title</a>
+        <b style="text-align:center" width="100" height="60">$p.GG</b>
+        <b style="text-align:right" width="100" height="60">$p.DJ元</b>
+        <button id="add_into_gwc" onclick="gwc_add('$p.title','$p.GG','$p.DJ元')">
+            <img src="static/images/public/gwc.jpg" width="20" height="20"/>
+        </button>
     </div>
-</div>
 <div>
-    购物车
+    <a id="go_to_gwc" href="/gwc/xiaomai">进入购物车</a>
 </div>
+
+<script>
+
+    function gwc_add(pdtitle,pdgg,pddj){
+    // 将商品加入购物车
+        var pd={
+            "user":"xiaomai",
+            "pdtitle":pdtitle,
+            "pdgg":pdgg,
+            "pddj":pddj
+        }
+
+        jQuery.ajax(
+            {
+            url:'/gwc',
+            type:"POST",
+            data:pd,
+            cache:false,
+            success:function(data){
+                if (data=="true"){
+                    alert("加入购物车成功");
+                }else{
+                    alert(data);
+                }
+            },
+            error:function(){
+                alert(arguments[1]+"通信失败");
+            }
+        })
+    }
+
+</script>
+<style>
+    <!--这是标签选择器-->
+    <!-- 这是class选择器-->
+    #product_list
+    {
+    text-align:left;
+    font-size:30px;
+    font-family:Sans-serif;
+    color:black;
+    }
+</style>
 
 $var title:商品展示

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title></title>
+<script typet="text/javascript" src="http://lib.sinaapp.com/js/jquery/1.9.1/jquery-1.9.1.min.js"></script>
+</head>
+<body>
+<ul>
+<li class="contentli">
+<span>小鱼</span>
+<input type="button" name="" id="" value="-" class="jian"/><input type="button" name="" id="" value="0" class="con"/>
+<input type="button" value="+" class="jia"/>
+
+</li>
+<li class="contentli">
+<span>核桃</span>
+<input type="button" name="" id="" value="-" class="jian"/><input type="button" name="" id="" value="0" class="con"/>
+<input type="button" value="+" class="jia"/>
+
+</li>
+<li class="contentli">
+<span>薯片</span>
+<input type="button" name="" id="" value="-" class="jian"/><input type="button" name="" id="" value="0" class="con"/>
+<input type="button" value="+" class="jia"/>
+
+</li>
+</ul>
+<input type="button" name="" id="shop" value="我是购物车按钮点击我" />
+<div>
+<ul class="tott">
+
+</ul>
+</div>
+</body>
+</html>
+<script type="text/javascript">
+$(function(){
+//这是加1
+$(".contentli").find(".jia").click(function(){
+$(this).prev().val(parseInt($(this).prev().val())+1);
+
+});
+//这是减1
+$(".contentli").find(".jian").click(function(){
+$(this).next().val(parseInt($(this).next().val())-1);
+});
+
+//这里是点击购物车
+$("#shop").click(function(){
+var shophtml="";
+$(".contentli").each(function(i,e){
+if($(this).find(".con").val()>0){
+shophtml+="<li><span>"+$(this).find("span").html()+"</span><span>数量:"+$(this).find(".con").val()+"</span></li>"
+
+}
+
+})
+
+$(".tott").html(shophtml);
+
+
+})
+
+
+
+
+})
+</script>

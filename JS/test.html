@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1 id="message">第一个页面</h1>
+
+<button id="dd" onclick="func(4,2)">点点</button>
+
+<input id="demo">
+<button onclick="mfun()">这是另一个段落</button>
+
+<form name="myform" action="/calcu.html"
+      onsubmit="return formfun()" method="post">
+    请输入名字：<input type="text" name="fname">
+    <input type="submit" value="提交">
+</form>
+
+</body>
+
+<script>
+
+function formfun(){
+    var name=document.forms["myform"]["fname"].value
+    if (name==null || name==""){
+        alert("请输入名字");
+        return false;
+    }
+}
+
+
+
+function mfun(){
+    var message,x
+    message=document.getElementById("message")
+    message.innerHTML=""
+    x=document.getElementById("demo").value
+    try{
+        if (x == "") throw "值为空";
+        if (isNaN(x)) throw "不是数字";
+        x=Number(x);
+        if (x<5) throw "太小";
+        if (x>10) throw "太大"
+    }catch(err){
+        message.innerHTML ="错误："+err;
+    }
+}
+
+
+func2()
+
+var list=['a','b','c','d','e']
+list=[1,2,3,4,5,6,7]
+function func2(){
+    for (var i in list){
+        if (list[i]==3){
+            //return list[i]
+            document.write(list[i])
+        }
+        // else{
+           // return
+        //}
+    }
+}
+
+
+var person={
+    name:'xiaomai',
+    year:2018,
+    position:'beij',
+}
+for (var i=0,len=list.length;i<len;i++){
+    document.write(list[i])
+}
+
+for (var i in list){
+    document.write(list[i])
+}
+
+for (var i in person){
+    document.write(person[i]+"-")
+}
+
+</script>
+
+
+
+<script>
+    function func(a,b){
+        if (a>b){
+            document.getElementById("dd").innerHTML= a*b
+        }
+        else {
+            window.alert("a<=b")
+        }
+    }
+</script>
+
+<script>
+    // window.alert(5+6);
+
+    var time=Date()
+
+    var lista={
+    a:"aa",
+    b:"bb",
+    c:"cc",
+    fun:function(){
+        var time2=Date()
+        document.getElementById("demo").innerHTML=(this.a+this.b+time+time2)
+    }
+    };
+
+    // document.getElementById("demo").innerHTML=lista.fun()
+
+    var list2=new Object()
+    list2.a="aaa"
+    list2.b="bbb"
+    list2.fun=function(){
+        return this.a+this.b+time
+    }
+    // document.getElementById("demo2").innerHTML=list2.fun()
+
+    //document.write(Date())
+
+
+    a=3
+    b=4
+    c=a*b
+    console.log(c)
+</script>
+
+
+</html>

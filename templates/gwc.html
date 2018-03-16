@@ -1,0 +1,9 @@
+$def with(products)
+<h1>购物车中的商品如下：</h1>
+<div>
+    $for p in products:
+        <li>商品名称：$p.pdtitle 商品规格：$p.pdgg 商品单价：$p.pddj 商品数量：$p.pdsl瓶</li>
+
+</div>
+
+$var title:购物车

@@ -1,0 +1,12 @@
+/*这是注释*/
+
+/*这是标签选择器*/
+h1 {text-align:center;
+    font-family:Sans-serif;
+    font-size:3em;
+    color:sienna}
+
+/*这是class选择器*/
+.font {text-align:right;font-size:40px;color:sienna}
+.font-green {font-size:20px;color:green;}
+/*这是id选择器*/

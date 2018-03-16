@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form name='login'action="/" method="post" onsubmit="return isblank()">
+用户名：<input type="text" name="name"><br>
+密码：<input type="text" name="passwd"><br>
+<input type="submit" value="登录">
+</form>
+</body>
+<script>
+    function isblank(){
+    //判定用户名和密码是否为空，若为空，则弹窗提示
+        var user=document.forms["login"]["name"].value
+        var passwd=document.forms["login"]["passwd"].value
+        if (user==''||user==null){
+            alert("用户名不可为空");
+        }else if(passwd==''||passwd==null){
+            alert("密码不可为空");
+        }else{
+            return true;
+        }
+    }
+</script>
+</html>
+
+$var title:LogIn
